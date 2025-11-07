@@ -2,13 +2,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWF0YW5kNTkxIiwiYSI6ImNtaDlybG55YzE2YnAya3BxM
 
 const map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/mapbox/streets-v12',
+  style: 'mapbox://styles/mapbox/streets-v12', // test with default first
   center: [-122.27, 37.87], // Berkeley
   zoom: 12
 });
 
 map.on('load', function() {
-  // Add your GeoJSON layer
   map.addSource('points-data', {
     type: 'geojson',
     data: 'https://raw.githubusercontent.com/matthewandrews211/BAHA-MAP/main/data/183matt.geojson'
@@ -27,7 +26,6 @@ map.on('load', function() {
   });
 });
 
-// Add popup when clicking points
 map.on('click', 'points-layer', (e) => {
   const coordinates = e.features[0].geometry.coordinates.slice();
   const p = e.features[0].properties;
@@ -39,9 +37,7 @@ map.on('click', 'points-layer', (e) => {
       <b>Architect:</b> ${p.Architect || 'N/A'}<br>
       <b>Designated:</b> ${p.Designated || 'N/A'}<br>
       ${p.Notes ? `<b>Notes:</b> ${p.Notes}<br>` : ''}
-      <a href="${p.Link}" target="_blank" style="color:#4264FB; text-decoration:underline;">
-        More info
-      </a>
+      <a href="${p.Link}" target="_blank" style="color:#4264FB; text-decoration:underline;">More info</a>
     </div>
   `;
 
@@ -50,6 +46,3 @@ map.on('click', 'points-layer', (e) => {
     .setHTML(popupHTML)
     .addTo(map);
 });
-
-
-
