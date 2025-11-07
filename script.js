@@ -2,7 +2,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWF0YW5kNTkxIiwiYSI6ImNtaDlybG55YzE2YnAya3BxM
 
 const map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/matand591/cmha3o12m00rh01sr1jy33pl1', // your Mapbox style
+  style: 'mapbox://styles/matand591/cmhpgu18d000a01r6cdt8apoy', 
   center: [-122.27, 37.87], // Berkeley
   zoom: 12
 });
@@ -50,4 +50,5 @@ map.on('click', 'points-layer', (e) => {
     .setHTML(popupHTML)
     .addTo(map);
 });
+
 
