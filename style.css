@@ -18,8 +18,8 @@ body {
 /* ---------- Credits / Source Overlay (Top-Right Corner) ---------- */
 #credits {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 10px;        /* top corner */
+    right: 10px;      /* right corner */
     background: rgba(255, 255, 255, 0.75); /* subtle transparency */
     padding: 4px 10px;
     font-size: 11px;
@@ -44,8 +44,3 @@ body {
 .mapboxgl-marker:hover {
     cursor: pointer;
 }
-
-.mapboxgl-marker:hover {
-    cursor: pointer; /* indicate clickable markers */
-}
-
